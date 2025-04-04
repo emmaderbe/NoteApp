@@ -14,7 +14,7 @@
 		C58AF8D92D9EC8CF00F8E343 /* Exceptions for "NoteApp" folder in "NoteApp" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Resourses/Info.plist,
 			);
 			target = C58AF8C32D9EC8C800F8E343 /* NoteApp */;
 		};
@@ -147,7 +147,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 45GX59UTNT;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NoteApp/Info.plist;
+				INFOPLIST_FILE = NoteApp/Resourses/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -179,7 +179,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 45GX59UTNT;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NoteApp/Info.plist;
+				INFOPLIST_FILE = NoteApp/Resourses/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
