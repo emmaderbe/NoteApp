@@ -5,7 +5,7 @@ final class LabelFactory {
         let label = UILabel()
         label.font = .systemFont(ofSize: 34, weight: .bold)
         label.numberOfLines = 0
-        label.textColor = .white
+        label.textColor = ColorExtension.accentWhite
         label.textAlignment = .left
         label.lineBreakMode = .byWordWrapping
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -26,7 +26,7 @@ final class LabelFactory {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .regular)
         label.numberOfLines = 0
-        label.textColor = .systemGray
+        label.textColor = ColorExtension.accentLightWhite
         label.textAlignment = .left
         label.lineBreakMode = .byTruncatingTail
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -37,7 +37,7 @@ final class LabelFactory {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 11, weight: .regular)
-        label.textColor = .white
+        label.textColor = ColorExtension.accentWhite
         label.textAlignment = .center
         label.lineBreakMode = .byWordWrapping
         label.translatesAutoresizingMaskIntoConstraints = false

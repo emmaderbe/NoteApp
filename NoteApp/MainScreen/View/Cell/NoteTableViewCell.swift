@@ -54,14 +54,30 @@ extension NoteTableViewCell {
         descriptionLabel.text = task.description
         dateLabel.text = task.formattedDate
         
-        let imageName = task.isCompleted ? "checkmark.circle.fill" : "circle"
-        statusButton.setImage(UIImage(systemName: imageName), for: .normal)
+        changeBttn(with: task.isCompleted)
+        changeTitle(with: task.isCompleted)
+        changeDescription(with: task.isCompleted)
+    }
+}
+
+private extension NoteTableViewCell {
+    func changeBttn(with isCompleted: Bool) {
+        let imageName: Void = isCompleted ? statusButton.setImage(UIImage(named: "checkmark.fill"), for: .normal) : statusButton.setImage(UIImage(named: "checkmark"), for: .normal)
+    }
+    
+    func changeTitle(with isCompleted: Bool) {
+        titleLabel.textColor = isCompleted ? ColorExtension.accentLightWhite : ColorExtension.accentWhite
         
-        titleLabel.textColor = task.isCompleted ? .gray : .white
-        descriptionLabel.textColor = task.isCompleted ? .gray : .white
-        titleLabel.attributedText = task.isCompleted ?
-            NSAttributedString(string: task.title, attributes: [.strikethroughStyle: NSUnderlineStyle.single.rawValue]) :
-            NSAttributedString(string: task.title)
+        titleLabel.attributedText = isCompleted ?
+       NSAttributedString(
+        string: titleLabel.text ?? "",
+        attributes: [.strikethroughStyle: NSUnderlineStyle.single.rawValue]) :
+       NSAttributedString(string: titleLabel.text ?? "")
+        
+    }
+    
+    func changeDescription(with isCompleted: Bool) {
+        descriptionLabel.textColor = isCompleted ? ColorExtension.accentLightWhite : ColorExtension.accentWhite
     }
 }
 

@@ -4,18 +4,24 @@ final class MainScreenView: UIView {
     private let titleLabel = LabelFactory.createSuperTitleLabel()
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.placeholder = "Search"
+        searchBar.searchTextField.backgroundColor = ColorExtension.accentGray
+        searchBar.searchTextField.attributedPlaceholder = NSAttributedString(
+            string: "Search",
+            attributes: [NSAttributedString.Key.foregroundColor: ColorExtension.accentLightWhite]
+        )
+        searchBar.searchTextField.textColor = ColorExtension.accentLightWhite
+        searchBar.searchTextField.leftView?.tintColor = ColorExtension.accentLightWhite
         searchBar.barTintColor = .clear
-        searchBar.searchTextField.backgroundColor = UIColor(white: 0.3, alpha: 1)
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchBar
     }()
+
 
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(NoteTableViewCell.self, forCellReuseIdentifier: NoteTableViewCell.identifier)
         tableView.backgroundColor = .clear
-        tableView.separatorColor = .darkGray
+        tableView.separatorColor = ColorExtension.accentLightGray
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
@@ -23,7 +29,7 @@ final class MainScreenView: UIView {
     
     private let footerView: UIView = {
         let view =  UIView()
-        view.backgroundColor = UIColor(white: 0.1, alpha: 0.8)
+        view.backgroundColor = ColorExtension.accentGray
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -82,10 +88,10 @@ private extension MainScreenView {
             footerView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             countLabel.centerXAnchor.constraint(equalTo: footerView.centerXAnchor),
-            countLabel.centerYAnchor.constraint(equalTo: footerView.centerYAnchor),
+            countLabel.topAnchor.constraint(equalTo: footerView.topAnchor, constant: 20),
             
             addButton.trailingAnchor.constraint(equalTo: footerView.trailingAnchor, constant: -20),
-            addButton.centerYAnchor.constraint(equalTo: footerView.centerYAnchor),
+            addButton.centerYAnchor.constraint(equalTo: countLabel.centerYAnchor),
             addButton.widthAnchor.constraint(equalToConstant: 28),
             addButton.heightAnchor.constraint(equalToConstant: 28)
         ])
