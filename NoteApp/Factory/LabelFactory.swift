@@ -1,6 +1,6 @@
 import UIKit
 
-final class LabelFactory {
+struct LabelFactory {
     static func createSuperTitleLabel() -> UILabel {
         let label = UILabel()
         label.font = .systemFont(ofSize: 34, weight: .bold)

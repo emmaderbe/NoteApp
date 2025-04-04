@@ -44,7 +44,7 @@ private extension MainScreenViewController {
     
     func updateData() {
         mainScreenView.reloadData()
-        mainScreenView.updateTaskCount(tasks.count)
+        mainScreenView.updateTaskCount(for: tasks.count)
     }
 }
 

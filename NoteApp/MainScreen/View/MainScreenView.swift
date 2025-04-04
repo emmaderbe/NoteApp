@@ -6,7 +6,7 @@ final class MainScreenView: UIView {
         let searchBar = UISearchBar()
         searchBar.searchTextField.backgroundColor = ColorExtension.accentGray
         searchBar.searchTextField.attributedPlaceholder = NSAttributedString(
-            string: "Search",
+            string: MainScreenEnum.View.String.placeholder,
             attributes: [NSAttributedString.Key.foregroundColor: ColorExtension.accentLightWhite]
         )
         searchBar.searchTextField.textColor = ColorExtension.accentLightWhite
@@ -15,8 +15,8 @@ final class MainScreenView: UIView {
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchBar
     }()
-
-
+    
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(NoteTableViewCell.self, forCellReuseIdentifier: NoteTableViewCell.identifier)
@@ -70,30 +70,30 @@ private extension MainScreenView {
 private extension MainScreenView {
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: MainScreenEnum.View.Constr.titleTopConstr),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: MainScreenEnum.View.Constr.titleLeadingConstr),
             
-            searchBar.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 0),
-            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20 - 8),
-            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20 + 8),
+            searchBar.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: MainScreenEnum.View.Constr.spacingConstr),
+            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: MainScreenEnum.View.Constr.searchLeadingConstr),
+            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: MainScreenEnum.View.Constr.searchTrailingConstr),
             
-            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 0),
+            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: MainScreenEnum.View.Constr.spacingConstr),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: footerView.topAnchor),
             
-            footerView.heightAnchor.constraint(equalToConstant: 83),
+            footerView.heightAnchor.constraint(equalToConstant: MainScreenEnum.View.Constr.footerHeightConstr),
             footerView.leadingAnchor.constraint(equalTo: leadingAnchor),
             footerView.trailingAnchor.constraint(equalTo: trailingAnchor),
             footerView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             countLabel.centerXAnchor.constraint(equalTo: footerView.centerXAnchor),
-            countLabel.topAnchor.constraint(equalTo: footerView.topAnchor, constant: 20),
+            countLabel.topAnchor.constraint(equalTo: footerView.topAnchor, constant: MainScreenEnum.View.Constr.countTopConstr),
             
-            addButton.trailingAnchor.constraint(equalTo: footerView.trailingAnchor, constant: -20),
+            addButton.trailingAnchor.constraint(equalTo: footerView.trailingAnchor, constant: MainScreenEnum.View.Constr.bttnTrailingConstr),
             addButton.centerYAnchor.constraint(equalTo: countLabel.centerYAnchor),
-            addButton.widthAnchor.constraint(equalToConstant: 28),
-            addButton.heightAnchor.constraint(equalToConstant: 28)
+            addButton.widthAnchor.constraint(equalToConstant: MainScreenEnum.View.Constr.bttnWidthConstr),
+            addButton.heightAnchor.constraint(equalTo: addButton.widthAnchor)
         ])
     }
 }
@@ -109,8 +109,29 @@ extension MainScreenView {
         titleLabel.text = title
     }
     
-    func updateTaskCount(_ count: Int) {
-        countLabel.text = "\(count) задач"
+    func updateTaskCount(for count: Int) {
+        let name = taskWord(for: count)
+        countLabel.text = "\(count) \(name)"
+    }
+}
+
+private extension MainScreenView {
+    func taskWord(for count: Int) -> String {
+        let lastTwoDigits = count % 100
+        let lastDigit = count % 10
+        
+        if lastTwoDigits >= 11 && lastTwoDigits <= 14 {
+            return "Задач"
+        }
+        
+        switch lastDigit {
+        case 1:
+            return "Задача"
+        case 2...4:
+            return "Задачи"
+        default:
+            return "Задач"
+        }
     }
 }
 

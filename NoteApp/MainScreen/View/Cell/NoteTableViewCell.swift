@@ -26,23 +26,23 @@ private extension NoteTableViewCell {
     
     func setupConstraints() {
             NSLayoutConstraint.activate([
-                statusButton.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: 12),
-                statusButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-                statusButton.widthAnchor.constraint(equalToConstant: 24),
-                statusButton.heightAnchor.constraint(equalToConstant: 24),
+                statusButton.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: MainScreenEnum.Cell.Constr.topBigConstr),
+                statusButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: MainScreenEnum.Cell.Constr.bttnLeadingConstr),
+                statusButton.widthAnchor.constraint(equalToConstant: MainScreenEnum.Cell.Constr.bttnWidthConstr),
+                statusButton.heightAnchor.constraint(equalTo: statusButton.widthAnchor),
                 
-                titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
-                titleLabel.leadingAnchor.constraint(equalTo: statusButton.trailingAnchor, constant: 8),
-                titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+                titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: MainScreenEnum.Cell.Constr.topBigConstr),
+                titleLabel.leadingAnchor.constraint(equalTo: statusButton.trailingAnchor, constant: MainScreenEnum.Cell.Constr.titleLeadingConstr),
+                titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: MainScreenEnum.Cell.Constr.titleTrailingConstr),
 
-                descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 6),
+                descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: MainScreenEnum.Cell.Constr.topConstr),
                 descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
                 descriptionLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
 
-                dateLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 6),
+                dateLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: MainScreenEnum.Cell.Constr.topConstr),
                 dateLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
                 dateLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-                dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12)
+                dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: MainScreenEnum.Cell.Constr.dateBottomConstr)
             ])
         }
     }
@@ -62,7 +62,7 @@ extension NoteTableViewCell {
 
 private extension NoteTableViewCell {
     func changeBttn(with isCompleted: Bool) {
-        let imageName: Void = isCompleted ? statusButton.setImage(UIImage(named: "checkmark.fill"), for: .normal) : statusButton.setImage(UIImage(named: "checkmark"), for: .normal)
+        let imageName: Void = isCompleted ? statusButton.setImage(UIImage(named: MainScreenEnum.Cell.Icon.pressedBttn), for: .normal) : statusButton.setImage(UIImage(named: MainScreenEnum.Cell.Icon.defaultBttn), for: .normal)
     }
     
     func changeTitle(with isCompleted: Bool) {

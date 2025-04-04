@@ -11,7 +11,7 @@ extension UIColor {
     }
 }
 
-final class ColorExtension {
+struct ColorExtension {
     static let accentWhite = UIColor(hex: 0xF4F4F4)
     static let accentLightWhite = accentWhite.withAlphaComponent(0.5)
     static let accentYellow = UIColor(hex: 0xFED702)

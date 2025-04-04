@@ -1,6 +1,6 @@
 import UIKit
 
-final class ButtonFactory {
+struct ButtonFactory {
     static func createStatusButton() -> UIButton {
         let button = UIButton()
         button.tintColor = ColorExtension.accentWhite
