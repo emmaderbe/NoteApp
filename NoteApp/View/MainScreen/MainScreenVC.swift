@@ -6,8 +6,8 @@ final class MainScreenViewController: UIViewController {
     private let dataSource = NoteTableViewDataSource()
     
     private var tasks: [NoteEntity] = [
-        NoteEntity(title: "Почитать книгу", description: "Список продуктов для ужина", creationDate: .now, isCompleted: true),
-        NoteEntity(title: "Заняться спортом", description: "Тренировка дома", creationDate: .now, isCompleted: false),
+        NoteEntity(title: "Почитать книгу", description: "Список продуктов для ужина", creationDate: "", isCompleted: true),
+        NoteEntity(title: "Заняться спортом", description: "Тренировка дома", creationDate: "", isCompleted: false),
     ]
     
     override func loadView() {

@@ -51,7 +51,7 @@ private extension NoteTableViewCell {
 extension NoteTableViewCell {
     func configure(with task: NoteEntity) {
         descriptionLabel.text = task.description
-        dateLabel.text = task.formattedDate
+        dateLabel.text = task.creationDate
         
         changeBttn(with: task.isCompleted)
         changeTitle(text: task.title, isCompleted: task.isCompleted)
