@@ -1,5 +1,11 @@
 import UIKit
 
+protocol MainScreenViewProtocol: AnyObject {
+    func showTasks()
+    func showEmptyState()
+    func showError(_ message: String)
+}
+
 final class MainScreenView: UIView {
     private let titleLabel = LabelFactory.createSuperTitleLabel()
     private let searchBar: UISearchBar = {
